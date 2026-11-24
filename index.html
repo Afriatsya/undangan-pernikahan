@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Wedding | Rifai dan Anita </title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #F8F4EC;
+        }
+
+        /* HALAMAN UNDANGAN */
+        .hero {
+            background:
+                linear-gradient(
+                    rgba(25, 20, 15, 0.45),
+                    rgba(25, 20, 15, 0.65)
+                ),
+                url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000')
+                center/cover;
+        }
+
+        .gold-line {
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #B6975B,
+                transparent
+            );
+        }
+
+        .gold-button {
+            background: linear-gradient(
+                135deg,
+                #C6A76B,
+                #94733F
+            );
+            transition: 0.3s;
+        }
+
+        .gold-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px #94733f55;
+        }
+
+        /* HALAMAN PRANK */
+        #prankPage {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: #F8F4EC;
+            overflow-y: auto;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .prank-title {
+            animation: bounceIn 1s ease;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* CONFETTI */
+        .confetti {
+            position: fixed;
+            top: -20px;
+            width: 10px;
+            height: 15px;
+            z-index: 200;
+            pointer-events: none;
+            animation: fall 4s linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(720deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HALAMAN UNDANGAN -->
+    <main id="invitationPage">
+
+        <!-- HEADER / HERO -->
+        <section class="hero min-h-screen flex items-center justify-center text-center px-5 py-16 text-white">
+
+            <div class="max-w-2xl w-full">
+
+                <p class="uppercase tracking-[7px] text-xs md:text-sm mb-8">
+                    The Wedding Invitation
+                </p>
+
+                <div class="w-24 h-px gold-line mx-auto mb-8"></div>
+
+                <p class="text-2xl italic mb-3"
+                   style="font-family: 'Cormorant Garamond', serif;">
+                    We Are Getting Married
+                </p>
+
+                <h1 class="text-7xl md:text-9xl text-[#E8CE9B] mb-6"
+                    style="font-family: 'Great Vibes', cursive;">
+                    Rifai & 
+                    Anita
+                </h1>
+
+                <p class="tracking-[5px] text-sm mb-10">
+                    06 . 12 . 2026
+                </p>
+
+                <div class="w-24 h-px gold-line mx-auto mb-8"></div>
+
+                <p class="text-sm font-light mb-2">
+                    Kepada Yth.
+                </p>
+
+                <p class="text-2xl mb-8"
+                   style="font-family: 'Cormorant Garamond', serif;">
+                    Bapak / Ibu / Saudara(i)
+                </p>
+
+                <!-- TOMBOL MENUJU PRANK -->
+                <button
+                    onclick="openPrank()"
+                    class="gold-button px-10 py-4 text-white text-xs tracking-[3px] uppercase rounded-sm">
+
+                    LIHAT UNDANGAN
+
+                </button>
+
+                <p class="text-[10px] mt-8 tracking-widest opacity-70">
+                    YOU ARE CORDIALLY INVITED
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- HALAMAN PRANK -->
+    <section id="prankPage">
+
+        <div class="min-h-screen flex items-center justify-center px-6 py-16 text-center">
+
+            <div class="max-w-2xl mx-auto">
+
+                <div class="text-7xl md:text-8xl mb-8 prank-title">
+                    😂
+                </div>
+
+                <p class="text-sm md:text-base leading-8 text-[#665B4D] tracking-wide mb-8">
+
+                    TERIMA KASIH TELAH MELUANGKAN WAKTU
+                    UNTUK MEMBACA UNDANGAN INI.
+
+                </p>
+
+                <div class="w-24 h-px gold-line mx-auto mb-8"></div>
+
+                <h2 class="text-2xl md:text-3xl text-[#40352D] mb-6"
+                    style="font-family: 'Cormorant Garamond', serif;">
+
+                    Namun, mohon maaf...
+
+                </h2>
+
+                <p class="text-sm md:text-base leading-8 text-stone-500 mb-10">
+
+                    Pernikahan ini hanyalah sebuah khayalan.
+                    Tidak ada akad, tidak ada resepsi,
+                    dan tidak ada calon pengantin.
+
+                </p>
+
+                <h1 class="text-3xl md:text-5xl font-bold text-[#A43D32] leading-tight prank-title"
+                    style="font-family: 'Cormorant Garamond', serif;">
+
+                    SELAMAT! KAMU BARU SAJA MENJADI
+                    KORBAN PRANK! 🤣
+
+                </h1>
+
+                <div class="w-32 h-px gold-line mx-auto my-10"></div>
+
+                <p class="text-3xl text-[#B6975B]"
+                   style="font-family: 'Great Vibes', cursive;">
+
+                    Jangan Baper Ya!
+
+                </p>
+
+                <button
+                    onclick="location.reload()"
+                    class="gold-button px-8 py-4 text-white text-xs tracking-[3px] uppercase mt-10 rounded-sm">
+
+                    KEMBALI
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function openPrank() {
+
+            // Sembunyikan undangan
+            document.getElementById('invitationPage').style.display = 'none';
+
+            // Tampilkan halaman prank
+            document.getElementById('prankPage').style.display = 'block';
+
+            // Kunci scroll halaman belakang
+            document.body.style.overflow = 'hidden';
+
+            // Mulai confetti
+            createConfetti();
+
+            // Kembali ke posisi atas
+            window.scrollTo(0, 0);
+
+        }
+
+
+        function createConfetti() {
+
+            const colors = [
+                '#B6975B',
+                '#D8B878',
+                '#A43D32',
+                '#E9D7B0',
+                '#F5D76E'
+            ];
+
+            for (let i = 0; i < 120; i++) {
+
+                const confetti = document.createElement('div');
+
+                confetti.className = 'confetti';
+
+                confetti.style.left = Math.random() * 100 + 'vw';
+
+                confetti.style.backgroundColor =
+                    colors[Math.floor(Math.random() * colors.length)];
+
+                confetti.style.animationDuration =
+                    (Math.random() * 3 + 2) + 's';
+
+                confetti.style.animationDelay =
+                    Math.random() * 2 + 's';
+
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 6000);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
